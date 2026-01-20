@@ -1,0 +1,21 @@
+services:
+    server:
+        build:
+            context: ./server
+            dockerfile: Dockerfile
+        ports:
+            - "3000:3000"
+        environment:
+            - PORT=3000
+            - NODE_ENV=development
+        volumes:
+            - ./server/src:/usr/src/app/src
+
+    postgres_db:
+        image: postgres:16
+        ports:
+            - "5432:5432"
+        environment:
+            - POSTGRES_DB=better-task-tracker
+            - POSTGRES_USER=admin
+            - POSTGRES_PASSWORD=password
