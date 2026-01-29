@@ -29,7 +29,7 @@ export class UserService {
   /**
    * Returns a user that matches provided email address, otherwise, returns null
    */
-  private findByEmail(email: string): Promise<User | null> {
+  findByEmail(email: string): Promise<User | null> {
     return this.usersRepository.findOne({
       where: {
         email: email,
